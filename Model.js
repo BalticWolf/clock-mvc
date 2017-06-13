@@ -9,10 +9,9 @@ Model.prototype = Object.create(EventEmitter.prototype);
 Model.prototype.constructor = Model;
 
 Model.prototype.init = function() {
-    var self = this; // to avoid the 'bind' method
     setInterval(function() {
-        self.changeTime();
-    }, 1000);
+        this.changeTime();
+    }.bind(this), 1000);
 };
 
 Model.prototype.changeOffset = function(offset) {

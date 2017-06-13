@@ -9,13 +9,12 @@ View.prototype = Object.create(EventEmitter.prototype);
 View.prototype.constructor = View;
 
 View.prototype.init = function() {
-    var self = this;
     document.querySelectorAll('.changeOffset').forEach (function (button) {
         button.addEventListener('click', function(event) {
             var offset = event.target.getAttribute('data-offset');
-            self.emit('offsetClick', offset); // broadcast the event 'offsetClick'
+            this.emit('offsetClick', offset); // broadcast the event 'offsetClick'
         }.bind(this));
-    });
+    }.bind(this));
 
     this._hourDisplay = document.querySelector('#hours');
     this._minuteDisplay = document.querySelector('#minutes');

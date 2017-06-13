@@ -1,3 +1,5 @@
-model = new Model();
-view = new View(model);
-ctrl = new Controller(model, view);
+(function() {
+    var model = new Model();
+    var view = new View(model);
+    new Controller(model, view);
+})();

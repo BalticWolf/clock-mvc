@@ -4,6 +4,7 @@ function View(model) {
     this.init();
 }
 
+// View inherits from EventEmitter
 View.prototype = Object.create(EventEmitter.prototype);
 View.prototype.constructor = View;
 
@@ -12,7 +13,7 @@ View.prototype.init = function() {
     document.querySelectorAll('.changeOffset').forEach (function (button) {
         button.addEventListener('click', function(event) {
             var offset = event.target.getAttribute('data-offset');
-            self.emit('offsetClick', offset);
+            self.emit('offsetClick', offset); // broadcast the event 'offsetClick'
         }.bind(this));
     });
 
@@ -20,9 +21,12 @@ View.prototype.init = function() {
     this._minuteDisplay = document.querySelector('#minutes');
     this._secondDisplay = document.querySelector('#seconds');
 
+    // each time the event 'timeChanged' is triggered by the model,
+    // the view runs showTime
     this._model.on('timeChanged', this.showTime.bind(this));
 };
 
+// Display the clock
 View.prototype.showTime = function () {
     this._hourDisplay.innerText = this._model.getHours();
     this._minuteDisplay.innerText = this._model.getMinutes();

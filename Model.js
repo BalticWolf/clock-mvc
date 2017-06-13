@@ -25,6 +25,11 @@ Model.prototype.changeTime = function() {
     this.emit('timeChanged'); // broadcast the event 'timeChanged'
 };
 
+Model.prototype.reset = function () {
+    this._offset = 0;
+    this.changeTime();
+};
+
 Model.prototype.getHours = function() {
     var hours = this._date.getHours();
     return hours < 10 ? '0' + hours : hours; // display on 2 digits

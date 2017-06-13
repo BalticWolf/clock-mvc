@@ -3,10 +3,15 @@ function Controller(model, view) {
     this._view = view;
 
     // each time the event 'offsetClick' is triggered by the view,
-    // the controller runs handleKey
-    this._view.on('offsetClick', this.handleKey.bind(this));
+    // the controller runs handleOffset
+    this._view.on('offsetClick', this.handleOffset.bind(this));
+    this._view.on('resetClick', this.handleReset.bind(this));
 }
 
-Controller.prototype.handleKey = function (offset) {
+Controller.prototype.handleOffset = function (offset) {
     this._model.changeOffset(offset);
+};
+
+Controller.prototype.handleReset = function () {
+    this._model.reset();
 };

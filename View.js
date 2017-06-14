@@ -33,7 +33,11 @@ View.prototype.init = function() {
 
 // Display the clock
 View.prototype.showTime = function () {
-    this._hourDisplay.innerText = this._model.getHours();
-    this._minuteDisplay.innerText = this._model.getMinutes();
-    this._secondDisplay.innerText = this._model.getSeconds();
+    var hours = this._model.getHours();
+    var minutes = this._model.getMinutes();
+    var seconds = this._model.getSeconds();
+
+    this._hourDisplay.innerText = hours < 10 ? '0' + hours : hours; // display on 2 digits
+    this._minuteDisplay.innerText = minutes < 10 ? '0' + minutes : minutes;
+    this._secondDisplay.innerText = seconds < 10 ? '0' + seconds : seconds;
 };

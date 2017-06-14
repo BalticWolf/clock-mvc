@@ -31,16 +31,13 @@ Model.prototype.reset = function () {
 };
 
 Model.prototype.getHours = function() {
-    var hours = this._date.getHours();
-    return hours < 10 ? '0' + hours : hours; // display on 2 digits
+    return this._date.getHours();
 };
 
 Model.prototype.getMinutes = function() {
-    var minutes = this._date.getMinutes();
-    return minutes < 10 ? '0' + minutes : minutes; // display on 2 digits
+    return this._date.getMinutes();
 };
 
 Model.prototype.getSeconds = function() {
-    var seconds = this._date.getSeconds();
-    return seconds < 10 ? '0' + seconds : seconds; // display on 2 digits
+    return this._date.getSeconds();
 };

@@ -11,7 +11,7 @@ function Controller(model, view) {
     this._view.on('addSec', this.handleAddSecond.bind(this));
     this._view.on('remSec', this.handleRemSecond.bind(this));
 
-/*    this._view.on('resetClick', this.handleReset.bind(this));*/
+    this._view.on('resetClick', this.handleReset.bind(this));
 }
 
 Controller.prototype.handleAddHour = function () {
@@ -24,11 +24,11 @@ Controller.prototype.handleRemHour = function () {
 };
 
 Controller.prototype.handleAddMinute = function () {
-    this._model.addHour();
+    this._model.addMinute();
 };
 
 Controller.prototype.handleRemMinute = function () {
-    this._model.remHour();
+    this._model.remMinute();
 };
 
 Controller.prototype.handleAddSecond = function () {
@@ -38,7 +38,7 @@ Controller.prototype.handleAddSecond = function () {
 Controller.prototype.handleRemSecond = function () {
     this._model.remSecond();
 };
-/*
+
 Controller.prototype.handleReset = function () {
     this._model.reset();
-};*/
+};

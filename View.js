@@ -27,11 +27,11 @@ View.prototype.init = function() {
     btnAddSec.addEventListener('click', this.emit.bind(this, 'addSec'));
     btnRemSec.addEventListener('click', this.emit.bind(this, 'remSec'));
 
-/*    // Prepare button to reset the time
+    // Prepare button to reset the time
     var btnReset = document.querySelector('#reset');
     btnReset.addEventListener('click', function() {
         this.emit('resetClick'); // broadcast the event 'resetClick'
-    }.bind(this));*/
+    }.bind(this));
 
     // each time the event 'timeChanged' is triggered by the model,
     // the view runs showTime

@@ -2,8 +2,7 @@ function Controller(model, view) {
     this._model = model;
     this._view = view;
 
-    // each time the event 'offsetClick' is triggered by the view,
-    // the controller runs handleOffset
+    // time event handlers
     this._view.on('addHour', this.handleAddHour.bind(this));
     this._view.on('remHour', this.handleRemHour.bind(this));
     this._view.on('addMinute', this.handleAddMinute.bind(this));
@@ -11,13 +10,13 @@ function Controller(model, view) {
     this._view.on('addSec', this.handleAddSecond.bind(this));
     this._view.on('remSec', this.handleRemSecond.bind(this));
 
-    this._view.on('resetClick', this.handleReset.bind(this));
+    // reset event handler
+    this._view.on('reset', this.handleReset.bind(this));
 }
 
 Controller.prototype.handleAddHour = function () {
     this._model.addHour();
 };
-
 
 Controller.prototype.handleRemHour = function () {
     this._model.remHour();

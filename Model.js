@@ -12,13 +12,9 @@ Model.prototype.init = function() {
 
     setInterval(function() {
         this.addSecond();
-        this.changeTime();
     }.bind(this), 1000);
 };
 
-Model.prototype.changeTime = function() {
-    this.emit('timeChanged'); // broadcast the event 'timeChanged'
-};
 Model.prototype.reset = function () {
     var date = new Date();
 
@@ -26,7 +22,7 @@ Model.prototype.reset = function () {
     this._minutes = date.getMinutes();
     this._seconds = date.getSeconds();
 
-    this.changeTime();
+    this.emit('timeChanged');
 };
 
 Model.prototype.getHours = function() {
@@ -45,14 +41,14 @@ Model.prototype.addHour = function() {
     this._hours += 1;
     if (this._hours > 23) this._hours = 0;
 
-    this.changeTime();
+    this.emit('timeChanged');
 };
 
 Model.prototype.remHour = function() {
     this._hours -= 1;
     if (this._hours < 0) this._hours = 23;
 
-    this.changeTime();
+    this.emit('timeChanged');
 };
 
 Model.prototype.addMinute = function() {
@@ -62,7 +58,7 @@ Model.prototype.addMinute = function() {
         this.addHour();
     }
 
-    this.changeTime();
+    this.emit('timeChanged');
 };
 
 Model.prototype.remMinute = function() {
@@ -72,7 +68,7 @@ Model.prototype.remMinute = function() {
         this.remHour();
     }
 
-    this.changeTime();
+    this.emit('timeChanged');
 };
 
 Model.prototype.addSecond = function() {
@@ -82,7 +78,7 @@ Model.prototype.addSecond = function() {
         this.addMinute();
     }
 
-    this.changeTime();
+    this.emit('timeChanged');
 };
 
 Model.prototype.remSecond = function() {
@@ -92,5 +88,5 @@ Model.prototype.remSecond = function() {
         this.remMinute();
     }
 
-    this.changeTime();
+    this.emit('timeChanged');
 };

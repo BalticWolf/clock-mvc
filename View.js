@@ -13,18 +13,25 @@ View.prototype.constructor = View;
 
 View.prototype.init = function() {
     // Prepare buttons to change the time
-    document.querySelectorAll('.changeOffset').forEach (function (button) {
-        button.addEventListener('click', function(event) {
-            var offset = event.target.getAttribute('data-offset');
-            this.emit('offsetClick', offset); // broadcast the event 'offsetClick'
-        }.bind(this));
-    }.bind(this));
+    var btnAddHour = document.querySelector('#addHour');
+    var btnRemHour = document.querySelector('#remHour');
+    var btnAddMinute = document.querySelector('#addMinute');
+    var btnRemMinute = document.querySelector('#remMinute');
+    var btnAddSec = document.querySelector('#addSec');
+    var btnRemSec = document.querySelector('#remSec');
 
-    // Prepare button to reset the time
+    btnAddHour.addEventListener('click', this.emit.bind(this, 'addHour'));
+    btnRemHour.addEventListener('click', this.emit.bind(this, 'remHour'));
+    btnAddMinute.addEventListener('click', this.emit.bind(this, 'addMinute'));
+    btnRemMinute.addEventListener('click', this.emit.bind(this, 'remMinute'));
+    btnAddSec.addEventListener('click', this.emit.bind(this, 'addSec'));
+    btnRemSec.addEventListener('click', this.emit.bind(this, 'remSec'));
+
+/*    // Prepare button to reset the time
     var btnReset = document.querySelector('#reset');
     btnReset.addEventListener('click', function() {
         this.emit('resetClick'); // broadcast the event 'resetClick'
-    }.bind(this));
+    }.bind(this));*/
 
     // each time the event 'timeChanged' is triggered by the model,
     // the view runs showTime

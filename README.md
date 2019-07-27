@@ -11,7 +11,7 @@ HOW TO USE IT:
 - The 'reset' button resets the clock to your current local time
 
 or
-- Use https://balticwolf.github.io/clock-mvc/ directly.
+- Use https://timotheeaupetit.github.io/clock-mvc/ directly.
 
 BRANCH 'master':
 - The 'master' branch uses a 'Date' object and offset to manage the time modifications.
